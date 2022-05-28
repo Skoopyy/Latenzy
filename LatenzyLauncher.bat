@@ -39,6 +39,3 @@ LatenzyGoogleDNS
 
 :op5
 exit
-
-:exit
-@exit

@@ -11,11 +11,11 @@ ECHO.
 CHOICE /C 12345 /M "Enter your choice: "
 
 :: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 5 GOTO Exit
-IF ERRORLEVEL 4 GOTO GoogleDNS
+IF ERRORLEVEL 5 GOTO Minecraft
+IF ERRORLEVEL 4 GOTO Fortnite
 IF ERRORLEVEL 3 GOTO CloudflareDNS
-IF ERRORLEVEL 2 GOTO Fortnite
-IF ERRORLEVEL 1 GOTO Minecraft
+IF ERRORLEVEL 2 GOTO GoogleDNS
+IF ERRORLEVEL 1 GOTO exit
 
 :minecraft
 cls

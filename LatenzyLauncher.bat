@@ -1,40 +1,44 @@
 @echo off
 title Latenzy Launcher
 CLS
+echo Select a task:
+echo =============
+echo -
 ECHO 1. Optimize Minecraft using Latenzy
 ECHO 2. Optimize Fortnite using Latenzy
 ECHO 3. Optimize your Internet using Cloudflare's DNS servers
 ECHO 4. Optimize your Internet using Google's DNS servers
 ECHO 5. Exit Latenzy
-ECHO.
+echo -
+set /p op=Type option: 
+if "%op%"=="1" goto op1
+if "%op%"=="2" goto op2
+if "%op%"=="3" goto op3
+if "%op%"=="4" goto op4
+if "%op%"=="5" goto op5
 
-CHOICE /C 12345 /M "Enter your choice: "
+echo Please pick an option:
+goto begin
 
-:: Note - list ERRORLEVELS in decreasing order
-IF ERRORLEVEL 5 GOTO Minecraft
-IF ERRORLEVEL 4 GOTO Fortnite
-IF ERRORLEVEL 3 GOTO CloudflareDNS
-IF ERRORLEVEL 2 GOTO GoogleDNS
-IF ERRORLEVEL 1 GOTO exit
 
-:minecraft
-cls
+:op1
+echo you picked option 1
 LatenzyMC
 
-:fortnite
-cls
+:op2
+echo you picked option 2
 LatenzyFN
 
-:CloudflareDNS
-cls
+:op3
+echo you picked option 3
 LatenzyCloudflareDNS
 
-:GoogleDNS
-cls
+:op4
+echo you picked option 4
 LatenzyGoogleDNS
 
-:Exit
-cls
-echo Exiting Latenzy...
-timeout 3 /nobreak > nul
+:op5
 exit
+
+:exit
+@exit

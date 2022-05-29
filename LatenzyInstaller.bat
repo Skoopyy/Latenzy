@@ -32,6 +32,7 @@ powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyCloudflareDNS
 cls
 echo Installed Latenzy DNS configurators.
 echo Installing Latenzy Power Plan...
+powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyCloudflareDNS.bat -O LatenzyPowerPlan.bat
 echo https://raw.githubusercontent.com/Skoopyy/Latenzy/main/LatenzyPlan.pow > LatenzyPlan.pow
 cls
 echo Installed Latenzy Power Plan.

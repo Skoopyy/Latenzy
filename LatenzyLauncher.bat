@@ -23,19 +23,23 @@ goto begin
 
 :op1
 echo you picked option 1
-LatenzyMC
+start LatenzyMC.bat
+exit
 
 :op2
 echo you picked option 2
-LatenzyFN
+start LatenzyFN.bat
+exit
 
 :op3
 echo you picked option 3
-LatenzyCloudflareDNS
+start LatenzyCloudflareDNS.bat
+exit
 
 :op4
 echo you picked option 4
-LatenzyGoogleDNS
+start LatenzyGoogleDNS.bat
+exit
 
 :op5
 exit

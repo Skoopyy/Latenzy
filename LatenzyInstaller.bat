@@ -41,22 +41,35 @@ echo Installing Latenzy Power Plan...
 echo https://raw.githubusercontent.com/Skoopyy/Latenzy/main/LatenzyPlan.pow > LatenzyPlan.pow
 cls
 echo Installed Latenzy Power Plan.
+echo Installing Latenzy Debloater...
+powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyDebloat.bat -O LatenzyDebloat.bat
+CLS
+echo Installed Latenzy Debloater.
 echo Creating script to make desktop shortcut...
 echo Set oWS = WScript.CreateObject("WScript.Shell") > CreateShortcut.vbs
 echo sLinkFile = "%HOMEDRIVE%%HOMEPATH%\Desktop\Latenzy Launcher.lnk" >> CreateShortcut.vbs
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> CreateShortcut.vbs
 echo oLink.TargetPath = "C:\Program Files\Latenzy\LatenzyLauncher.bat" >> CreateShortcut.vbs
 echo oLink.Save >> CreateShortcut.vbs
+cls
+echo Created script to make desktop shortcut.
 title Almost done installing Latenzy
 cls
 echo Creating desktop shortcut...
 echo.
-color 0b
+cscript CreateShortcut.vbs
+del CreateShortcut.vbs
+cls
+echo Creating script to make start shortcut...
+echo Set oWS = WScript.CreateObject("WScript.Shell") > CreateShortcut.vbs
+echo sLinkFile = "%HOMEDRIVE%%username%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Latenzy Launcher.lnk" >> CreateShortcut.vbs
+echo Set oLink = oWS.CreateShortcut(sLinkFile) >> CreateShortcut.vbs
+echo oLink.TargetPath = "C:\Program Files\Latenzy\LatenzyLauncher.bat" >> CreateShortcut.vbs
+echo oLink.Save >> CreateShortcut.vbs
 cscript CreateShortcut.vbs
 del CreateShortcut.vbs
 cls
 title Installed Latenzy
-color 7
 echo Installed Latenzy, press any key to exit.
 pause > nul
 exit

@@ -1,4 +1,5 @@
 @echo off
+color 0
 title Installing Latenzy
 echo Installing Latenzy...
 if not "%1"=="am_admin" (
@@ -8,11 +9,16 @@ if not "%1"=="am_admin" (
 )
 cls
 title Installing Latenzy...
-echo Getting install files from Github...
+echo Preparing for install...
 cd /
 cd "Program Files"
 md Latenzy > nul
+cls
+echo Fetching info files from GitHub...
 cd Latenzy
+powershell curl https://github.com/Skoopyy/Latenzy/raw/main/verinfo.txt -O VersionInfo.txt
+echo Fetched info files.
+echo Installing...
 cls
 echo Installing Latenzy Launcher...
 powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyLauncher.bat -O LatenzyLauncher.bat
@@ -32,19 +38,25 @@ powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyCloudflareDNS
 cls
 echo Installed Latenzy DNS configurators.
 echo Installing Latenzy Power Plan...
-powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyCloudflareDNS.bat -O LatenzyPowerPlan.bat
 echo https://raw.githubusercontent.com/Skoopyy/Latenzy/main/LatenzyPlan.pow > LatenzyPlan.pow
 cls
 echo Installed Latenzy Power Plan.
+echo Creating script to make desktop shortcut...
 echo Set oWS = WScript.CreateObject("WScript.Shell") > CreateShortcut.vbs
 echo sLinkFile = "%HOMEDRIVE%%HOMEPATH%\Desktop\Latenzy Launcher.lnk" >> CreateShortcut.vbs
 echo Set oLink = oWS.CreateShortcut(sLinkFile) >> CreateShortcut.vbs
 echo oLink.TargetPath = "C:\Program Files\Latenzy\LatenzyLauncher.bat" >> CreateShortcut.vbs
 echo oLink.Save >> CreateShortcut.vbs
+title Almost done installing Latenzy
+cls
+echo Creating desktop shortcut...
+echo.
+color 0b
 cscript CreateShortcut.vbs
 del CreateShortcut.vbs
 cls
 title Installed Latenzy
+color 7
 echo Installed Latenzy, press any key to exit.
 pause > nul
 exit

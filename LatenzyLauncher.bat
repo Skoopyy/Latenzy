@@ -7,7 +7,7 @@ echo =============
 echo -
 ECHO 1. Optimize Minecraft using Latenzy
 ECHO 2. Optimize Fortnite using Latenzy
-ECHO 3. Optimize your computer by stopping automatic updates
+ECHO 3. Optimize your computer by debloating
 ECHO 4. Optimize your Internet using Google's DNS servers
 ECHO 5. Optimize your computer using Cloudflare's DNS servers
 ECHO 6. Exit Latenzy
@@ -36,32 +36,7 @@ exit
 
 :op3
 echo Option 3 it is
-cls
-if not "%1"=="am_admin" (
-    title Latenzy - Requesting admin permissions...
-    powershell -Command "Start-Process -Verb RunAs -FilePath '%0' -ArgumentList 'am_admin'"
-    exit /b
-)
-cls
-title Latenzy - Windows Update
-set
-timeout 1 /nobreak > nul
-cls
-echo Stopping automatic updates...
-net stop wuauserv
-sc config wuauserv start= disabled
-echo Stopped sucessfully.
-color 0b
-echo Thank you for using Latenzy.
-echo.
-echo --------------------------------------
-echo Author: Skoopyy
-echo youtube.com/SkoopyyYouTube
-echo github.com/Skoopyy
-echo --------------------------------------
-echo.
-echo Press any key to exit Latenzy.
-pause > nul
+start LatenzyDebloat.bat
 exit
 
 :op4

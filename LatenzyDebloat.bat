@@ -132,16 +132,35 @@ Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Paramete
 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "EnableWsd" /t REG_DWORD /d "00000000" /f >nul 2>&1  
 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "Tcp1323Opts" /t REG_DWORD /d "00000001" /f >nul 2>&1  
 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "TCPCongestionControl" /t REG_DWORD /d "00000001" /f >nul 2>&1
-powershell Invoke-WebRequest "https://cdn.discordapp.com/attachments/872722402948284468/901667414977150976/DeviceCleanupCmd.exe" -Outfile "C:\Program Files\Latenzy\Device_cleanup.exe"
+powershell Invoke-WebRequest "https://github.com/Skoopyy/Latenzy/raw/main/devcln.exe" -Outfile "C:\Program Files\Latenzy\DeviceCleanup.exe"
+cls
 timeout 2 >nul 2>&1
-del /Q C:\Users\%username%\AppData\Local\Microsoft\Windows\INetCache\IE\*.*
-del /Q C:\Windows\Downloaded Program Files\*.*
-rd /s /q %SYSTEMDRIVE%\$Recycle.bin
-del /Q C:\Users\%username%\AppData\Local\Temp\*.*
-del /Q C:\Windows\Temp\*.*
-del /Q C:\Windows\Prefetch\*.*
+echo Cleaning up Internet Explorer Cache...
+del /Q C:\Users\%username%\AppData\Local\Microsoft\Windows\INetCache\IE\*.* > nul
+cls
+echo Finished cleaning up Internet Explorer Cache.
+echo Cleaning up Downloads Folder...
+del /Q C:\Windows\Downloaded Program Files\*.* > nul
+cls
+echo Finished cleaning up Downloads Folder.
+echo Cleaning up Recycle Bin...
+rd /s /q %SYSTEMDRIVE%\$Recycle.bin > nul
+cls
+echo Finished cleaning up Recycle Bin.
+echo Cleaning up Temp folder...
+del /Q C:\Users\%username%\AppData\Local\Temp\*.* > nul
+del /Q C:\Windows\Temp\*.* > nul
+cls
+echo Finished cleaning up Temp folder.
+echo Cleaning up Prefetch folder...
+del /Q C:\Windows\Prefetch\*.* > nul
+cls
+echo Finished cleaning up Prefetch folder.
+echo Running general cleanups...
 cd "C:\Program Files\Latenzy"
-Device_cleanup.exe *
+DeviceCleanup.exe *
+CLS
+echo Finished running all cleanups.
 color 0b
 echo Thank you for using Latenzy.
 echo.

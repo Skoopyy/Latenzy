@@ -14,6 +14,8 @@ cd /
 cd "Program Files"
 md Latenzy > nul
 cls
+echo Don't trust EzPing, they already got exposed
+echo ---------------------
 echo Fetching info files from GitHub...
 cd Latenzy
 powershell curl https://github.com/Skoopyy/Latenzy/raw/main/verinfo.txt -O VersionInfo.txt

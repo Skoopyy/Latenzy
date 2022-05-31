@@ -25,6 +25,14 @@ echo *This will change your IP address only if you have a dynamic IP address, no
 timeout 1 /nobreak > nul
 ipconfig /flushdns
 cls
+echo Giving you the best Optifine settings...
+cd /
+cd "%appdata%\.minecraft"
+powershell curl https://raw.githubusercontent.com/Skoopyy/Latenzy/main/optionsof.txt -O optionsof.txt
+cls
+echo Gave you the best Optifine settings.
+timeout 1 /nobreak > nul
+cls
 title Latenzy - Finished
 echo Finished optimizing your PC, enjoy!
 sc start BITS

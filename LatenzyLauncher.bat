@@ -5,12 +5,12 @@ cd "C:\Program Files\Latenzy"
 echo Select a task:
 echo =============
 echo -
-ECHO 1. Optimize Minecraft using Latenzy
-ECHO 2. Optimize Fortnite using Latenzy
+ECHO 1. Optimize Minecraft
+ECHO 2. Optimize Fortnite
 ECHO 3. Optimize your computer by debloating
 ECHO 4. Optimize your Internet using Google's DNS servers
 ECHO 5. Optimize your computer using Cloudflare's DNS servers
-ECHO 6. Exit Latenzy
+ECHO 6. Optimize your ping
 echo -
 set /p op=Type option: 
 if "%op%"=="1" goto op1
@@ -50,4 +50,5 @@ start LatenzyCloudflareDNS.bat
 exit
 
 :op6
+start LatenzyPing.bat
 exit

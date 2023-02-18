@@ -33,6 +33,15 @@ cls
 echo Gave you the best Optifine settings.
 timeout 1 /nobreak > nul
 cls
+Wmic.exe /Namespace:\\root\default Path SystemRestore Call CreateRestorePoint "Ping Restore Point", 100, 7
+cls
+wmic process where name="svchost.exe" CALL setpriority "idle"
+ping 127.0.0.1 -n 5 >nul
+wmic process where name="javaw.exe" CALL setpriority "high priority"
+wmic process where name="javaw.exe" CALL setpriority "high priority"
+ipconfig /flushdns
+sc start BITS
+cls
 title Latenzy - Finished
 echo Finished optimizing your PC, enjoy!
 sc start BITS > nul

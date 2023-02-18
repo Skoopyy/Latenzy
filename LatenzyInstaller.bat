@@ -69,8 +69,12 @@ cls
 echo Installed Latenzy Power Plan.
 echo Installing Latenzy Debloater...
 powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyDebloat.bat -O LatenzyDebloat.bat > nul
-CLS
+cls
 echo Installed Latenzy Debloater.
+echo Installing Latenzy Ping Optimizer...
+powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyPing.bat -O LatenzyPing.bat > nul
+CLS
+echo Installed Latenzy Ping Optimizer.
 echo Creating script to make desktop shortcut...
 echo Set oWS = WScript.CreateObject("WScript.Shell") > CreateShortcut.vbs
 echo sLinkFile = "%HOMEDRIVE%%HOMEPATH%\Desktop\Latenzy Launcher.lnk" >> CreateShortcut.vbs

@@ -1,8 +1,0 @@
-Latenzy's EULA
-
-Product made by Skoopyy (youtube.com/SkoopyyYouTube)
-By running or installing Latenzy, you agree to the End User License Agreement.
-
-1. Skoopyy will not be held responsible of anything Latenzy does (because of user modification, leading to data loss, ...)
-2. Latenzy comes with NO WARRANTY at all.
-3. Modifying any files means you accept that there may be data loss or the program malfunctioning.

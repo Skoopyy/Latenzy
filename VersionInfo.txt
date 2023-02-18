@@ -1,0 +1,2 @@
+#This file will only update if a critical updates needs to take place
+criticalUpdate == "false"

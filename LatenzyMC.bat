@@ -11,31 +11,31 @@ if not "%1"=="am_admin" (
 title Latenzy - Minecraft
 cls
 echo Setting svchost process to idle...
-wmic process where name="svchost.exe" CALL setpriority "idle"
+wmic process where name="svchost.exe" CALL setpriority "idle" > nul
 cls
 echo Pinging localhost...
-ping 127.0.0.1 -n 5 >nul
+ping 127.0.0.1 -n 5 > nul
 cls
 echo Setting Minecraft's processes to high priority...
-wmic process where name="javaw.exe" CALL setpriority "high priority"
-wmic process where name="javaw.exe" CALL setpriority "high priority"
+wmic process where name="javaw.exe" CALL setpriority "high priority" > nul
+wmic process where name="javaw.exe" CALL setpriority "high priority" > nul
 cls
 echo Flushing DNS...
 echo *This will change your IP address only if you have a dynamic IP address, nothing else will be changed*
 timeout 1 /nobreak > nul
-ipconfig /flushdns
+ipconfig /flushdns > nul
 cls
 echo Giving you the best Optifine settings...
 cd /
 cd "%appdata%\.minecraft"
-powershell curl https://raw.githubusercontent.com/Skoopyy/Latenzy/main/optionsof.txt -O optionsof.txt
+powershell curl https://raw.githubusercontent.com/Skoopyy/Latenzy/main/optionsof.txt -O optionsof.txt > nul
 cls
 echo Gave you the best Optifine settings.
 timeout 1 /nobreak > nul
 cls
 title Latenzy - Finished
 echo Finished optimizing your PC, enjoy!
-sc start BITS
+sc start BITS > nul
 goto done
 :done
 cls

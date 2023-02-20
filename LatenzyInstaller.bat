@@ -1,12 +1,30 @@
 @echo off
-color 0
-title Installing Latenzy
+title Latenzy Installer
 echo Installing Latenzy...
 if not "%1"=="am_admin" (
     title Latenzy - Requesting admin permissions...
     powershell -Command "Start-Process -Verb RunAs -FilePath '%0' -ArgumentList 'am_admin'"
-    exit 
+    exit /b
 )
+cls
+title Latenzy Installer
+echo Doing file check...
+cd /
+cd "Program Files"
+if exist Latenzy\ (
+    echo It seems like you already have Latenzy installed, do you want to reinstall it?
+    echo 1. Reinstall Latenzy
+    echo 2. Uninstall Latenzy
+    echo 3. Exit
+    CHOICE /C 123 /M "Enter your choice: "
+    IF ERRORLEVEL 3 exit
+    IF ERRORLEVEL 2 rd Latenzy /s /q & goto Uninstall
+    IF ERRORLEVEL 1 rd Latenzy /s /q & goto Install
+) else (
+    md Latenzy
+    cd Latenzy
+)
+:Install
 cls
 title Latenzy Installer
 echo Fetching EULA...
@@ -33,14 +51,8 @@ pause > nul
 cls
 title Installing Latenzy...
 echo Preparing for install...
-cd /
-cd "Program Files"
-md Latenzy > nul
 cls
-echo Don't trust EzPing, they already got exposed
-echo ---------------------
 echo Fetching info files from GitHub...
-cd Latenzy
 powershell curl https://github.com/Skoopyy/Latenzy/raw/main/verinfo.txt -O VersionInfo.txt > nul
 powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyIcon.ico -O LatenzyIcon.ico > nul
 echo Fetched info files.
@@ -103,3 +115,8 @@ title Installed Latenzy
 echo Installed Latenzy, press any key to exit.
 pause > nul
 exit
+
+:Uninstall
+cls
+echo Uninstalled Latenzy
+pause

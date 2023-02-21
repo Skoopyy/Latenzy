@@ -132,7 +132,6 @@ Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Paramete
 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "EnableWsd" /t REG_DWORD /d "00000000" /f >nul 2>&1  
 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "Tcp1323Opts" /t REG_DWORD /d "00000001" /f >nul 2>&1  
 Reg.exe add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" /v "TCPCongestionControl" /t REG_DWORD /d "00000001" /f >nul 2>&1
-powershell Invoke-WebRequest "https://github.com/Skoopyy/Latenzy/raw/main/devcln.exe" -Outfile "C:\Program Files\Latenzy\DeviceCleanup.exe"
 cls
 timeout 2 >nul 2>&1
 echo Cleaning up Internet Explorer Cache...
@@ -158,7 +157,6 @@ cls
 echo Finished cleaning up Prefetch folder.
 echo Running general cleanups...
 cd "C:\Program Files\Latenzy"
-DeviceCleanup.exe *
 CLS
 echo Finished running all cleanups.
 color 0b

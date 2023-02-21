@@ -76,7 +76,7 @@ powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyCloudflareDNS
 cls
 echo Installed Latenzy DNS configurators.
 echo Installing Latenzy Power Plan...
-echo https://raw.githubusercontent.com/Skoopyy/Latenzy/main/LatenzyPlan.pow > LatenzyPlan.pow > nul
+echo https://raw.githubusercontent.com/Skoopyy/Latenzy/main/LatenzyPlan.bat > LatenzyPlan.bat > nul
 cls
 echo Installed Latenzy Power Plan.
 echo Installing Latenzy Debloater...
@@ -85,8 +85,19 @@ cls
 echo Installed Latenzy Debloater.
 echo Installing Latenzy Ping Optimizer...
 powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyPing.bat -O LatenzyPing.bat > nul
-CLS
+cls
 echo Installed Latenzy Ping Optimizer.
+echo Installing Latenzy Cleaner...
+powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyCleaner.bat -O LatenzyCleaner.bat > nul
+cls
+echo Installed Latenzy Cleaner.
+echo Installing Latenzy Driver Optimizer...
+powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyNVIDIA.bat -O LatenzyNVIDIA.bat > nul
+powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyAMD.bat -O LatenzyAMD.bat > nul
+powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyIntel.bat -O LatenzyIntel.bat > nul
+powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyAudio.bat -O LatenzyAudio.bat > nul
+CLS
+echo Installed Latenzy Driver Optimizer.
 echo Creating script to make desktop shortcut...
 echo Set oWS = WScript.CreateObject("WScript.Shell") > CreateShortcut.vbs
 echo sLinkFile = "%HOMEDRIVE%%HOMEPATH%\Desktop\Latenzy Launcher.lnk" >> CreateShortcut.vbs

@@ -6,8 +6,6 @@ if not "%1"=="am_admin" (
     exit 
 )
 title Latenzy
-echo|(set /p="Creating restore point" & echo.)
-Wmic.exe /Namespace:\\root\default Path SystemRestore Call CreateRestorePoint "Ping Restore Point", 100, 7
 cls
 wmic process where name="svchost.exe" CALL setpriority "idle"
 ping 127.0.0.1 -n 5 >nul
@@ -98,6 +96,29 @@ cls
 curl https://raw.githubusercontent.com/DorkYBru/FixUrGames/main/iping.reg > iping.reg
 reg import iping.reg
 del iping.reg
+if "%NETOF%" == "%COL%[91mOFF" (
+	reg add "HKCU\Software\Hone" /v InternetTweaks /f
+	netsh int tcp set global dca=enabled
+	netsh int tcp set global netdma=enabled
+	netsh interface isatap set state disabled
+	netsh int tcp set global timestamps=disabled
+	netsh int tcp set global rss=enabled
+	netsh int tcp set global nonsackrttresiliency=disabled
+	netsh int tcp set global initialRto=2000
+	netsh int tcp set supplemental template=custom icw=10
+	netsh interface ip set interface ethernet currenthoplimit=64
+) >nul 2>&1 else (
+	reg delete "HKCU\Software\Hone" /v InternetTweaks /f
+	netsh int tcp set supplemental Internet congestionprovider=default
+	netsh int tcp set global initialRto=3000
+	netsh int tcp set global rss=default
+	netsh int tcp set global chimney=default
+	netsh int tcp set global dca=default
+	netsh int tcp set global netdma=default
+	netsh int tcp set global timestamps=default
+	netsh int tcp set global nonsackrttresiliency=default
+) >nul 2>&1
+cls
 goto LOGO
 :LOGO
 cls

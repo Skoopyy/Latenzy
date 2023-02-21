@@ -51,6 +51,9 @@ pause > nul
 cls
 title Installing Latenzy...
 echo Preparing for install...
+reg add "HKLM\System\CurrentControlSet\Control\CrashControl" /v "DisplayParameters" /t REG_DWORD /d "1" /f >nul 2>&1
+echo|(set /p="Creating restore point" & echo.)
+Wmic.exe /Namespace:\\root\default Path SystemRestore Call CreateRestorePoint "Latenzy Restore Point", 100, 7
 cls
 echo Fetching info files from GitHub...
 powershell curl https://github.com/Skoopyy/Latenzy/raw/main/verinfo.txt -O VersionInfo.txt > nul
@@ -123,11 +126,33 @@ cscript CreateShortcut.vbs
 del CreateShortcut.vbs
 cls
 title Installed Latenzy
-echo Installed Latenzy, press any key to exit.
-pause > nul
+echo.
+echo Press 1 to start Latenzy after install, otherwise press 2 to exit
+set /p op=Type option: 
+if "%op%"=="1" goto op1
+if "%op%"=="2" goto op2
+
+:op1
+start LatenzyLauncher.bat
+exit
+
+:op2
 exit
 
 :Uninstall
 cls
+title Latenzy Uninstaller
 echo Uninstalled Latenzy
-pause
+echo.
+echo Would you like to take a moment to tell us why you uninstalled Latenzy?
+echo Y for yes, N for no
+set /p op=Type option: 
+if "%op%"=="Y" goto yes
+if "%op%"=="N" goto no
+
+:yes
+start https://bit.ly/LatenzyUninstall
+exit
+
+:no
+exit

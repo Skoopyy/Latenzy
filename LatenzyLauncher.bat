@@ -1,7 +1,9 @@
 @echo off
 title Latenzy Launcher
 CLS
-cd "C:\Program Files\Latenzy"
+cd \
+cd "Program Files"
+cd Latenzy
 echo Select a task:
 echo =============
 echo -

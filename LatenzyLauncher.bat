@@ -70,7 +70,7 @@ exit
 
 :op7
 echo Option 7 it is
-start LatenzyPlan.bat
+start LatenzyPowerPlan.bat
 exit
 
 :op8

@@ -21,10 +21,11 @@ if exist Latenzy\ (
     IF ERRORLEVEL 2 rd Latenzy /s /q & goto Uninstall
     IF ERRORLEVEL 1 rd Latenzy /s /q & goto Install
 ) else (
-    md Latenzy
-    cd Latenzy
+    goto Install
 )
 :Install
+md Latenzy
+cd Latenzy
 cls
 title Latenzy Installer
 echo Fetching EULA...
@@ -52,14 +53,12 @@ cls
 title Installing Latenzy...
 echo Preparing for install...
 reg add "HKLM\System\CurrentControlSet\Control\CrashControl" /v "DisplayParameters" /t REG_DWORD /d "1" /f >nul 2>&1
-echo|(set /p="Creating restore point" & echo.)
-Wmic.exe /Namespace:\\root\default Path SystemRestore Call CreateRestorePoint "Latenzy Restore Point", 100, 7
 cls
 echo Fetching info files from GitHub...
-powershell curl https://github.com/Skoopyy/Latenzy/raw/main/verinfo.txt -O VersionInfo.txt > nul
+powershell curl https://github.com/Skoopyy/Latenzy/raw/main/version.txt -O Version.txt > nul
 powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyIcon.ico -O LatenzyIcon.ico > nul
 echo Fetched info files.
-echo Installing...
+type version.txt
 cls
 echo Installing Latenzy Launcher...
 powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyLauncher.bat -O LatenzyLauncher.bat > nul

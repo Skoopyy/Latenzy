@@ -1,5 +1,10 @@
 @echo off
 title Latenzy Launcher
+if not "%1"=="am_admin" (
+    title Latenzy - Requesting admin permissions...
+    powershell -Command "Start-Process -Verb RunAs -FilePath '%0' -ArgumentList 'am_admin'"
+    exit
+)
 CLS
 cd \
 cd "Program Files"

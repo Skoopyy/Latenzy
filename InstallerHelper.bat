@@ -1,11 +1,6 @@
 @echo off
 title Latenzy Installer
 echo Installing Latenzy...
-if not "%1"=="am_admin" (
-    title Latenzy - Requesting admin permissions...
-    powershell -Command "Start-Process -Verb RunAs -FilePath '%0' -ArgumentList 'am_admin'"
-    exit
-)
 cls
 title Latenzy Installer Console
 cd /
@@ -81,7 +76,7 @@ cscript CreateShortcut.vbs
 del CreateShortcut.vbs
 cls
 taskkill /f /im "LatenzyInstallerUI.exe"
-taskkill /f /im "LatenzyInstallerUI.exe"
+taskkill /f /im "LatenzyInstaller.exe"
 powershell curl https://github.com/Skoopyy/Latenzy/raw/main/InstallerHelper2.bat -O InstallerHelper2.bat > nul
 start cmd /c InstallerHelper2.bat
 exit

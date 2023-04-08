@@ -81,6 +81,7 @@ cscript CreateShortcut.vbs
 del CreateShortcut.vbs
 cls
 taskkill /f /im "LatenzyInstallerUI.exe"
+taskkill /f /im "LatenzyInstallerUI.exe"
 powershell curl https://github.com/Skoopyy/Latenzy/raw/main/InstallerHelper2.bat -O InstallerHelper2.bat > nul
 start cmd /c InstallerHelper2.bat
 exit

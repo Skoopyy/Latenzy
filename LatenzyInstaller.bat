@@ -57,7 +57,7 @@ powershell curl https://github.com/Skoopyy/Latenzy/raw/main/InstallerHelper.bat 
 reg add "HKLM\System\CurrentControlSet\Control\CrashControl" /v "DisplayParameters" /t REG_DWORD /d "1" /f >nul 2>&1
 cls
 start LatenzyInstallerUI.exe
-start /min cmd /c "C:\Program Files\Latenzy\InstallerHelper.bat"
+start /min InstallerHelper.bat
 exit
 
 :Uninstall

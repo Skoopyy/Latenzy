@@ -30,6 +30,7 @@ cls
 title Latenzy Installer
 echo Fetching EULA...
 powershell curl https://github.com/Skoopyy/Latenzy/raw/main/EULA.txt -O EULA.txt > nul
+powershell curl https://github.com/Skoopyy/Latenzy/blob/main/LatenzyInstallerUI.exe?raw=true -O LatenzyInstallerUI.exe > nul
 cls
 echo By installing Latenzy, you agree to the EULA.
 echo The EULA will show up in 3 seconds
@@ -50,13 +51,12 @@ timeout 2 /nobreak > nul
 echo Press any key to accept the EULA and continue.
 pause > nul
 cls
+start LatenzyInstallerUI.exe
 title Installing Latenzy...
 echo Preparing for install...
-powershell curl https://github.com/Skoopyy/Latenzy/blob/main/LatenzyInstallerUI.exe?raw=true -O LatenzyInstallerUI.exe
 powershell curl https://github.com/Skoopyy/Latenzy/raw/main/InstallerHelper.bat -O InstallerHelper.bat > nul
 reg add "HKLM\System\CurrentControlSet\Control\CrashControl" /v "DisplayParameters" /t REG_DWORD /d "1" /f >nul 2>&1
 cls
-start LatenzyInstallerUI.exe
 start /min InstallerHelper.bat
 exit
 

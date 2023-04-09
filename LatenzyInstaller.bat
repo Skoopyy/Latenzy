@@ -63,6 +63,7 @@ exit
 :Uninstall
 cls
 title Latenzy Uninstaller
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Latenzy" /f
 echo Uninstalled Latenzy
 echo.
 echo Would you like to take a moment to tell us why you uninstalled Latenzy?

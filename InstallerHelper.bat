@@ -13,6 +13,7 @@ type version.txt
 cls
 echo Installing Latenzy Launcher...
 powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyLauncher.bat -O LatenzyLauncher.bat > nul
+powershell curl https://github.com/Skoopyy/Latenzy/raw/main/LatenzyInstaller.bat -O LatenzyInstaller.bat > nul
 cls
 echo Installed Latenzy Launcher.
 echo Installing Latenzy Minecraft...
@@ -76,6 +77,16 @@ echo oLink.IconLocation = "C:\Program Files\Latenzy\LatenzyIcon.ico" >> CreateSh
 echo oLink.Save >> CreateShortcut.vbs
 cscript CreateShortcut.vbs
 del CreateShortcut.vbs
+cls
+echo Adding program to Add or Remove Programs...
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Latenzy" /ve /d "Latenzy" /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Latenzy" /v "DisplayName" /d "Latenzy" /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Latenzy" /v "DisplayIcon" /d "C:\Program Files\Latenzy\LatenzyIcon.ico" /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Latenzy" /v "Publisher" /d "Skoopyy" /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Latenzy" /v "DisplayVersion" /d "latest" /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Latenzy" /v "InstallLocation" /d "C:\Program Files\Latenzy" /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Latenzy" /v "UninstallString" /d "C:\Program Files\Latenzy\LatenzyInstaller.bat" /f
+echo Program added to Add or Remove Programs.
 cls
 taskkill /f /im "LatenzyInstallerUI.exe"
 taskkill /f /im "LatenzyInstaller.exe"

@@ -1,2 +1,2 @@
 # Latenzy
-Internet and Game optimizer
+## this project is sorta broken and issues will not be fixed
